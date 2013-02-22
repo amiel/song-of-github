@@ -2,6 +2,8 @@
 !function(global, $, MIDI){
   'use strict';
 
+  var transpose = 2; // C + 2 = D
+
   var mapping = {
         'fill: #eeeeee;': 0,
         'fill: #d6e685;': 1,
@@ -139,7 +141,7 @@
 
     function getNote() {
       var note = chord[m];
-      return (sum % 14 == 0) && (m % 3 == 0) ? note + 1 : note;
+      return ((sum % 14 == 0) && (m % 3 == 0) ? note + 1 : note) + transpose;
     }
 
     function getVelocity() {
